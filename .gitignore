@@ -1,0 +1,5 @@
+*.sock
+*.pid
+astdb.sqlite3
+astdb.sqlite3-journal
+*.lock
