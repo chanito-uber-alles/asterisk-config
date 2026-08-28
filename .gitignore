@@ -1,5 +1,30 @@
+# ── Runtime de Asterisk ───────────────────────────────────────────────────────
 *.sock
 *.pid
 astdb.sqlite3
 astdb.sqlite3-journal
 *.lock
+
+# ── GENERADOS por Frisis: NO se versionan ─────────────────────────────────────
+# Los reescribe /usr/local/bin/frisis_pull_agents.sh cada minuto desde la API de
+# Frisis (/voice/agents-config, /voice/queues-config, /voice/inbound-routes). Su
+# FUENTE es VoiceProvisioningService en el repo frisis-saas, no este archivo.
+#
+# Tenerlos rastreados era la causa de que este repo pareciera versionado y no lo
+# estuviera: cada alta de anexo dejaba el arbol sucio y nadie lo commiteaba.
+pjsip_agents.conf
+queues_frisis.conf
+extensions_inbound_frisis.conf
+
+# ── Certificados: los renueva certbot cada ~60 dias ───────────────────────────
+# Son secretos y los administra una maquina. Para reconstruir la caja se corre
+# certbot, no se restaura del repo.
+keys/
+
+# ── Copias a mano ─────────────────────────────────────────────────────────────
+# Trece de estas en el arbol: la huella de editar en produccion sin red.
+*.bak
+*.bak-*
+*.bak.*
+*.orig
+*~
